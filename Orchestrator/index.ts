@@ -13,6 +13,8 @@ const orchestrator = df.orchestrator(function* (context) {
     }
 
     if (!context.df.isReplaying) {
+        // For some reason, this will be printed twice and ActivitySuccess will
+        // neither be completed or false and its result will be undefined. 
         context.log.info(tasks.map((task) => ({
             iCompleted: task.isCompleted,
             isFaulted: task.isFaulted,
