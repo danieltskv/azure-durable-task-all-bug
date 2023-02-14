@@ -36,3 +36,7 @@ Once the function is running, go to http://localhost:7071/api/HttpTrigger to sta
 
 1. `context.df.Task.all(tasks)` throws as soon as one of the task fails and therefore, there is no guarantee that all the tasks are completed. Or at least no way to get the result of successful tasks.
 2. Even though we use `if (!context.df.isReplaying)`, the result of the Orchestrator function is logged twice
+
+## Solution
+
+See the [solution](https://github.com/GP4cK/azure-durable-task-all-bug/tree/solution) branch.
