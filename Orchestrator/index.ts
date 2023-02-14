@@ -12,6 +12,15 @@ const orchestrator = df.orchestrator(function* (context) {
         // We don't care
     }
 
+    // Yield all tasks to make sure they have all completed.
+    for (let task of tasks) {
+        try {
+            yield task;
+        } catch (err) {
+            // We don't care
+        }
+    }
+
     if (!context.df.isReplaying) {
         // For some reason, this will be printed twice and ActivitySuccess will
         // neither be completed or false and its result will be undefined. 
