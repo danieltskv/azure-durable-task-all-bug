@@ -1,10 +1,12 @@
 ﻿
 import { AzureFunction, Context } from "@azure/functions";
 
-const activityFunction: AzureFunction = async function (context: Context): Promise<string> {
+const activityFunction: AzureFunction = async function (context: Context, input: string): Promise<string> {
+    context.log(`----- Running ActivitySuccess. Input: ${input}`)
+
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(`Hello ${context.bindings.name}!`);
+            resolve(`Hello ${input}!`);
         }, 100);
     })
 };
