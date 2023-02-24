@@ -10,25 +10,25 @@ To run the project:
 npm i
 ```
 
-If you use Azurite, create this file `local.settings.json` with:  
+If you use Azurite, create this file `local.settings.json` with:
 
 ```json
 {
   "IsEncrypted": false,
   "Values": {
-    "AzureWebJobsStorage": "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;",
-    "FUNCTIONS_WORKER_RUNTIME": "node"
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true"
   }
 }
 ```
 
-Then in VSCode, go to the "Run and Debug" tab and click on "Attach to Node Functions".  
+Then in VSCode, go to the "Run and Debug" tab and click on "Attach to Node Functions".
 Once the function is running, go to http://localhost:7071/api/HttpTrigger to start the orchestration.
 
 ## Project Structure
 
 - The [HttpTrigger](HttpTrigger/index.ts) will be used to start the orchestration.
-- The [Orchestrator](Orchestrator/index.ts) creates 2 activities using the fan out fan in pattern
+- The [Orchestrator](Orchestrator/index.ts) creates 4 activities using the fan out fan in pattern
 - [ActivityFail](ActivityFail/index.ts) is an activity which will always fail
 - [ActivitySuccess](ActivitySuccess/index.ts) is an activity which will always succeed after a small delay
 
