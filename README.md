@@ -22,6 +22,8 @@ If you use Azurite, create this file `local.settings.json` with:
 }
 ```
 
+Start Azurite if needed: VSCode Command Palette -> "Azurite: Start".
+
 Then in VSCode, go to the "Run and Debug" tab and click on "Attach to Node Functions".
 Once the function is running, go to http://localhost:7071/api/HttpTrigger to start the orchestration.
 
